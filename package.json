@@ -19,6 +19,7 @@
   "bin": "cli.js",
   "main": "index.js",
   "dependencies": {
+    "gm": "^1.23.0",
     "micro": "^7.0.0",
     "update-notifier": "^1.0.3"
   },

@@ -1,0 +1,2 @@
+convert: unable to open image 'j2k:/var/folders/bw/y9vf0h6d5szfgpvn_wnjs4b00000gn/T/magick-159132EPLt7GATdPf': No such file or directory @ error/blob.c/OpenBlob/3093.
+convert: no images defined `-' @ error/convert.c/ConvertImageCommand/3254.
