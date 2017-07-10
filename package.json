@@ -1,0 +1,32 @@
+{
+  "name": "dico-mstagram-api",
+  "version": "1.0.0",
+  "description": "API for DICOMstagram",
+  "author": "Nikita Petukhov <nedoumok99@gmail.com>",
+  "repository": "kaptiin-tuekhov/dico-mstagram-api",
+  "license": "MIT",
+  "scripts": {
+    "start": "micro",
+    "test": "xo && ava"
+  },
+  "engines": {
+    "node": ">= 6"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "bin": "cli.js",
+  "main": "index.js",
+  "dependencies": {
+    "micro": "^7.0.0",
+    "update-notifier": "^1.0.3"
+  },
+  "devDependencies": {
+    "async-to-gen": "^1.3.2",
+    "ava": "^0.18.1",
+    "got": "^6.7.1",
+    "test-listen": "^1.0.1",
+    "xo": "^0.17.1"
+  }
+}
