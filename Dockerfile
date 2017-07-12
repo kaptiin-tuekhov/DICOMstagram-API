@@ -9,4 +9,3 @@ RUN git clone https://github.com/kaptiin-tuekhov/DICOMstagram-API.git
 WORKDIR /DICOMstagram-API
 RUN git checkout magick
 RUN npm install
-RUN node gm.js
