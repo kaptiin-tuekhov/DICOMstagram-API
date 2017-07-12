@@ -12,6 +12,7 @@ test('it should convert properly', async t => {
 	t.notThrows(convertProm);
 	await convertProm;
 	const {size} = await fs.statAsync('test.png');
+	console.log(size);
 	t.true(size === 189328);
 	const pngBuff = await fs.readFileAsync('test.png');
 	t.snapshot(pngBuff.toString()); // eslint-disable-line ava/use-t-well
