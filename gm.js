@@ -1,6 +1,6 @@
 const {spawn} = require('child_process');
 
-const child = spawn('magick', ['CR-MONO1-10-chest.dc', 'test.png']);
+const child = spawn('magick', ['CR-MONO1-10-chest.dcm', 'test.png']);
 
 child.on('exit', (code, signal) => {
 	console.log(`child process exited with code ${code} and signal ${signal}`);
