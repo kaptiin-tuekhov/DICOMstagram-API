@@ -19,6 +19,9 @@
   "bin": "cli.js",
   "main": "index.js",
   "dependencies": {
+    "aws-sdk": "^2.82.0",
+    "bluebird": "^3.5.0",
+    "dicom-parser": "^1.7.5",
     "micro": "^7.0.0",
     "update-notifier": "^1.0.3"
   },
