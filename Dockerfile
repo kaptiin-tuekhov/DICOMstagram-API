@@ -7,6 +7,6 @@ RUN apk --no-cache add imagemagick \
 
 RUN git clone https://github.com/kaptiin-tuekhov/DICOMstagram-API.git
 WORKDIR /DICOMstagram-API
-RUN git checkout magick
+RUN git checkout service
 RUN npm install
 CMD npm test && npm start

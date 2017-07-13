@@ -11,7 +11,7 @@ promise.promisifyAll(fs);
 require('async-to-gen/register')({includes: /index\.js$/});
 const app = require('./'); // eslint-disable-line import/order
 
-test(async t => {
+test('service', async t => {
 	const service = micro(app);
 	const url = await listen(service);
 	const buffer = await fs.readFileAsync('FluroWithDisplayShutter.dcm');

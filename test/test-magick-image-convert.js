@@ -8,14 +8,12 @@ const magickImageConvert = require('../magickImageConvert');
 Promise.promisifyAll(fs);
 
 test('it should convert properly', async t => {
-	const convertProm = magickImageConvert('CR-MONO1-10-chest.dcm', 'test.png');
+	const convertProm = magickImageConvert('FluroWithDisplayShutter.dcm', 'test.png');
 	t.notThrows(convertProm);
 	await convertProm;
 	const {size} = await fs.statAsync('test.png');
 	console.log(size);
-	t.true(size === 189328);
-	const pngBuff = await fs.readFileAsync('test.png');
-	t.snapshot(pngBuff.toString()); // eslint-disable-line ava/use-t-well
+	t.true(size === 860456);
 });
 
 test('it should error', t => {
