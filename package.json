@@ -6,7 +6,7 @@
   "repository": "kaptiin-tuekhov/dico-mstagram-api",
   "license": "MIT",
   "scripts": {
-    "start": "micro",
+    "start": "test && micro",
     "test": "xo && ava"
   },
   "engines": {
