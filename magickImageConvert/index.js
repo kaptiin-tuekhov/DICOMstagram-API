@@ -7,7 +7,9 @@ const magickImageConvert = (input, output) => new Promise((resolve, reject) => {
 		if (code === 0) {
 			resolve();
 		} else {
-			reject(err.join(`\n`));
+			reject({
+				message: err.join(`\n`)
+			});
 		}
 	});
 	child.stderr.on('data', data => {
