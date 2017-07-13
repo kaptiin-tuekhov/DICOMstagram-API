@@ -9,3 +9,4 @@ RUN git clone https://github.com/kaptiin-tuekhov/DICOMstagram-API.git
 WORKDIR /DICOMstagram-API
 RUN git checkout magick
 RUN npm install
+CMD npm test && npm start
