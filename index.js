@@ -1,7 +1,7 @@
 'use strict';
 const fs = require('fs');
 const promise = require('bluebird');
-const {send, buffer} = require('micro');
+const {send, buffer, createError} = require('micro');
 const uuid = require('uuid/v4');
 const dicomParse = require('./dicomParse');
 const dynamoDBUpload = require('./dynamoDBUpload');
@@ -17,16 +17,12 @@ module.exports = async (req, res) => {
 	const convertProm = convertAndUploadS3(buf, id);
 	try {
 		await promise.all([parseProm, convertProm]);
-		send(res, 200, `created ${id}`);
-	} catch (err) {
-		send(res, 400, err);
-	}
-	try {
 		const dcmEraseProm = fs.unlinkAsync(`${id}.dcm`);
 		const pngEraseProm = fs.unlinkAsync(`${id}.png`);
 		await promise.all([dcmEraseProm, pngEraseProm]);
+		send(res, 200, `created ${id}`);
 	} catch (err) {
-		console.error(err);
+		throw createError(400, `Error: ${err.message}`, err);
 	}
 };
 

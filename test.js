@@ -20,3 +20,31 @@ test('service', async t => {
 	});
 	t.is(res.statusCode, 200);
 });
+
+test('parse error', async t => {
+	const service = micro(app);
+	const url = await listen(service);
+	const buffer = await fs.readFileAsync('CR-MONO1-10-chest.dcm');
+	try {
+		await got.post(url, {
+			body: buffer
+		});
+	} catch (err) {
+		const actual = err.response.body;
+		t.true(actual === 'Error: dicomParser.readPart10Header: DICM prefix not found at location 132 - this is not a valid DICOM P10 file.');
+	}
+});
+
+test('convert error', async t => {
+	const service = micro(app);
+	const url = await listen(service);
+	const buffer = await fs.readFileAsync('image-000001.dcm');
+	try {
+		await got.post(url, {
+			body: buffer
+		});
+	} catch (err) {
+		const actual = err.response.body;
+		t.true(actual.includes('unable to open image'));
+	}
+});

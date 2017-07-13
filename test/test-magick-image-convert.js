@@ -17,7 +17,7 @@ test('it should convert properly', async t => {
 });
 
 test('it should error', t => {
-	const convertProm = magickImageConvert('nonexistantfile', 'neveroutput');
+	const convertProm = magickImageConvert('image-000001.dcm', 'test.png');
 	t.throws(convertProm);
 });
 
